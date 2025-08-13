@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>AfghanKash</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>AfghanKash</h1>
+    <nav>
+      <a href="#">خانه</a>
+      <a href="#">کیف پول</a>
+      <a href="#">اعلان‌ها</a>
+      <a href="#">پروفایل</a>
+      <a href="#">تنظیمات</a>
+      <a href="#">تماس</a>
+      <a href="#">درباره ما</a>
+      <a href="#">EchoBridge 🌍</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>به AfghanKash خوش آمدید</h2>
+      <p>پلتفرم دیجیتال برای خدمت به مردم افغانستان</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 AfghanKash</p>
+  </footer>
+</body>
+</html>
