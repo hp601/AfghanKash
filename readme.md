@@ -1,0 +1,1 @@
+echo "# AfghanKash" >> README.md
