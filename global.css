@@ -1,0 +1,11 @@
+body {
+  background-image: url("../images/logo.png");
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 180px;
+  background-color: #f1f3fc;
+  font-family: 'Tahoma', sans-serif;
+  direction: rtl;
+  margin: 0;
+  padding: 0;
+}

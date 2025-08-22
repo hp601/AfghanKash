@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>ثبت‌نام در AfghanKash</title>
+<link rel="stylesheet" href="styles/global.css">
+  <style>
+    body {
+      font-family: 'Tahoma', sans-serif;
+      background-color: #f1f3fc;
+      direction: rtl;
+      text-align: center;
+      padding: 30px;
+    }
+    form {
+      background-color: white;
+      padding: 30px;
+      margin: auto;
+      max-width: 500px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 14px;
+    }
+    button {
+      background-color: #007b5e;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #005f4a;
+    }
+    video, canvas, img {
+      max-width: 100%;
+      margin-top: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <form action="register.php" method="POST" enctype="multipart/form-data">
+    <h2>ثبت‌نام در AfghanKash 💚</h2>
+
+    <input type="text" name="fullname" placeholder="نام کامل" required>
+    <input type="email" name="email" placeholder="ایمیل" required>
+    <input type="password" name="password" placeholder="رمز عبور" required>
+    <input type="password" name="confirm" placeholder="تأیید رمز عبور" required>
+
+    <select name="gender" required>
+      <option value="">جنسیت را انتخاب کنید</option>
+      <option value="مرد">مرد</option>
+      <option value="زن">زن</option>
+    </select>
+
+    <label for="birthyear">سال تولد:</label>
+    <input type="date" name="birthyear" required>
+
+    <input type="text" name="phone" placeholder="شماره تماس (07xxxxxxxx)" required>
+
+    <label>📎 اسکن تذکره:</label>
+    <input type="file" name="tazkira" accept="image/*" required>
+
+    <label>📷 عکس چهره (از طریق دوربین):</label>
+    <video id="video" autoplay></video>
+    <canvas id="canvas" style="display:none;"></canvas>
+    <button type="button" onclick="capture()">📸 گرفتن تصویر</button>
+    <input type="hidden" name="profile_data" id="profile_data">
+    <img id="preview" style="display:none;">
+
+    <button type="submit">ثبت‌نام</button>
+  </form>
+
+  <script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const preview = document.getElementById('preview');
+    const profileData = document.getElementById('profile_data');
+
+    navigator.mediaDevices.getUserMedia({ video: true })
+      .then(stream => video.srcObject = stream)
+      .catch(err => alert("❌ دسترسی به دوربین ممکن نیست"));
+
+    function capture() {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      const dataURL = canvas.toDataURL('image/png');
+      profileData.value = dataURL;
+      preview.src = dataURL;
+      preview.style.display = 'block';
+    }
+  </script>
+
+</body>
+</html>
